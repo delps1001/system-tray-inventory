@@ -117,10 +117,6 @@ public class SystemTrayInventoryPlugin extends Plugin {
 
     @Subscribe
     public void onGameStateChanged(GameStateChanged gameStateChanged) {
-        if (gameStateChanged.getGameState() == GameState.LOGIN_SCREEN) {
-            SystemTray.getSystemTray().remove(this.trayIcon);
-        }
-
         if (gameStateChanged.getGameState() == GameState.LOGGED_IN) {
             this.trayIcon.setToolTip(getToolTipText(this.client.getLocalPlayer().getName()));
         }
